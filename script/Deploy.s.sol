@@ -9,13 +9,13 @@ contract DeployEscrow is Script {
         uint256 deployerPrivateKey = vm.envUint("PRIVATE_KEY");
         address sellerAddress = vm.envAddress("SELLER_ADDRESS");
         uint256 depositAmount = vm.envUint("DEPOSIT_AMOUNT");
-        
+
         vm.startBroadcast(deployerPrivateKey);
-        
+
         Escrow escrow = new Escrow{value: depositAmount}(sellerAddress);
-        
+
         vm.stopBroadcast();
-        
+
         console.log("Escrow deployed at:", address(escrow));
         console.log("Buyer:", escrow.getBuyer());
         console.log("Seller:", escrow.getSeller());
