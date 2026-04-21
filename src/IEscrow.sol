@@ -8,4 +8,7 @@ interface IEscrow {
     function getBuyer() external view returns (address);
     function getSeller() external view returns (address);
     function isApproved() external view returns (bool);
+    function withdrawFees() external;
+    function setFeePercentage(uint256 _feePercentage) external;
+    function getCollectedFees() external view returns (uint256);
 }
